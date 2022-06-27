@@ -6,5 +6,22 @@
     </head>
     <body>
         <h1>Hello {{name}}</h1>
+        <form method="POST" action="{{ url_for("add_post") }}">
+            <label>Title</label></br>
+            <input name="title"></br></br>
+            <label>Author</label></br>
+            <input name="author"></br></br>
+            <label>Content</label></br>
+            <textarea name="content"></textarea></br></br>
+            <input type="submit" value="Submit">
+        </form>
+        {% for post in posts %}
+            <h2>{{post.title}}</h2>
+            <h4>{{post.author}}</h4>
+            <p>{{post.content}}</p>
+            <a href="{{ url_for("edit_post", id=post.id) }}">Edit</a>
+            <a href="{{ url_for("delete_post", id=post.id) }}">Delete</a>
+        <br><hr>
+        {% endfor %}
     </body>
 </html>

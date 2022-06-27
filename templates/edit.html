@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Edit Post</title>
+    </head>
+    <body>
+        <h1>Edit Post</h1>
+        <form method="POST" action="{{ url_for("edit_post", id=post.id) }}">
+            <label>Title</label></br>
+            <input name="title" value="{{ post.title }}"></br></br>
+            <label>Author</label></br>
+            <input name="author" value="{{ post.author }}"></br></br>
+            <label>Content</label></br>
+            <textarea id="content" name="content"></textarea></br></br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+    <script>
+        document.getElementById("content").value = "{{ post.content }}"
+    </script>
+</html>
